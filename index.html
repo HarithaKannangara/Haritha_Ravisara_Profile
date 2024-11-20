@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Haritha Kannangara</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(120deg, #f4f4f9, #e6e9f0);
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(120deg, #3a3a8b, #2c2c54);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.3rem;
+      animation: slideIn 1s ease-out forwards;
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      color: #ffd700;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: transform 0.3s, color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .social-links a:hover {
+      color: #ffd700;
+      transform: scale(1.1);
+    }
+
+    .social-links i {
+      font-size: 1.4rem;
+    }
+
+    /* Animations */
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      padding: 3rem;
+      background: #fff;
+      text-align: center;
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    .about > div {
+      flex: 1;
+    }
+
+    .about-info {
+      text-align: left;
+      padding-left: 2rem;
+    }
+
+    .about h2, .projects h2, .education h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #333;
+      background: linear-gradient(to right, #ff8a00, #e52e71);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-info p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Skills Section */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 2rem;
+    }
+
+    .skills span {
+      background: linear-gradient(120deg, #ff8a00, #e52e71);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .skills span:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .skills span i {
+      font-size: 1.2rem;
+    }
+
+    /* Projects Section */
+    .projects {
+      padding: 3rem;
+      background: #f4f4f9;
+      text-align: center;
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    .project-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .project-item {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .project-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .project-item p {
+      color: #666;
+    }
+
+    .project-item a {
+      color: #1e90ff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .project-item a:hover {
+      color: #e52e71;
+    }
+
+    /* Education Section */
+    .education {
+      padding: 3rem;
+      background: #fff;
+      text-align: center;
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      background: #333;
+      color: #fff;
+      transition: background 0.3s ease;
+    }
+
+    .footer:hover {
+      background: #2c2c54;
+    }
+
+    /* Additional Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="header-content">
+      <h1>Hi, I’m Haritha Kannangara</h1>
+      <p>Software & Web Developer</p>
+      <div class="social-links">
+        <a href="https://github.com/HarithaKannangara" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/haritha-kannangara/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Me Section -->
+  <section class="about">
+    <div>
+      <img src="assets\1649616554416.jpg" alt="Haritha Kannangara" class="profile-photo" style="width: 250px; border-radius: 50%;">
+    </div>
+    <div class="about-info">
+      <h2>About Me</h2>
+      <p><strong>Name:</strong> Haritha Ravisara Kannangara</p>
+      <p><strong>Degree:</strong> BSc (Hons) in Information Technology [SLIIT]</p>
+      <p><strong>Location:</strong> Eheliyagoda, Sri Lanka</p>
+      <p><strong>Email:</strong> kannangaraharitha@gmail.com</p>
+      <p><strong>Phone:</strong>+94 76 214 0 726</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="projects">
+    <h2>Skills</h2>
+    <div class="skills">
+        <span><i class="fab fa-php"></i> PHP</span>
+        <span><i class="fab fa-js-square"></i> JavaScript</span>
+        <span><i class="fab fa-react"></i> React</span>
+        <span><i class="fab fa-laravel"></i> Laravel</span>
+        <span><i class="fab fa-python"></i> Python</span>
+        <span><i class="fab fa-node-js"></i> MERN</span>
+        <span><i class="fas fa-mobile-alt"></i> Flutter</span>
+    </div>
+  </section>
+
+<!-- Projects Section -->
+<section class="projects">
+    <h2>Projects</h2>
+    <div class="project-list">
+      
+      <!-- Project Item 1: Budget App -->
+      <div class="project-item">
+        <h3>Budget App</h3>
+        <p>A mobile application designed to help manage finances using Kotlin and Firebase. The app suggests ways to manage money, and reminds users of loan and payment dates.</p>
+        <div class="project-icons">
+          <img src="https://img.icons8.com/color/48/000000/kotlin.png" alt="Kotlin">
+          <img src="https://img.icons8.com/color/48/000000/firebase.png" alt="Firebase">
+        </div>
+        <div class="project-buttons">
+          
+          <button onclick="openModal('project1')" style="background-color: transparent; border: none; cursor: pointer; display: flex; align-items: center;">
+            <img src="https://img.icons8.com/ios/50/000000/plus.png" alt="Plus" style="width: 20px; height: 20px; margin-right: 5px;" />
+            More Details
+          </button>
+        </div>
+      </div>
+  
+      <!-- Project Item 2: Pizza Shop Management System -->
+      <div class="project-item">
+        <h3>Pizza Shop Management System</h3>
+        <p>A system to manage pizza shop inventory, menu, delivery, billing, and employees. Built using MongoDB, React, Express.js, and Node.js.</p>
+        <div class="project-icons">
+          <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB">
+          <img src="https://img.icons8.com/color/48/000000/react-native.png" alt="React">
+          <img src="https://img.icons8.com/color/48/000000/nodejs.png" alt="Node.js">
+        </div>
+        <div class="project-buttons">
+          <a href="https://github.com/HarithaKannangara/Pizza_ITP" target="_blank">
+            <button style="background-color: transparent; border: none; cursor: pointer;">
+              <img src="https://img.icons8.com/ios/50/000000/github.png" alt="GitHub" style="width: 24px; height: 24px;" />
+              View On Github
+            </button>
+          </a>
+          <button onclick="openModal('project2')" style="background-color: transparent; border: none; cursor: pointer; display: flex; align-items: center;">
+            <img src="https://img.icons8.com/ios/50/000000/plus.png" alt="Plus" style="width: 20px; height: 20px; margin-right: 5px;" />
+            More Details
+          </button>
+        </div>
+      </div>
+      
+      <!-- Project Item 4: Past Student Association -->
+<div class="project-item">
+    <h3>Past Student Association</h3>
+    <p>This app manages members, events, and communication for a school's past student association. Built with Laravel and MySQL.</p>
+    <div class="project-icons">
+      <!-- Laravel Icon (Font Awesome) -->
+      <i class="fab fa-laravel" style="font-size: 48px; color: #ff2d20;"></i>
+      <img src="https://img.icons8.com/color/48/000000/mysql.png" alt="MySQL">
+    </div>
+    <div class="project-buttons">
+      <a href="https://github.com/HarithaKannangara/past_sch" target="_blank">
+        <button style="background-color: transparent; border: none; cursor: pointer;">
+          <img src="https://img.icons8.com/ios/50/000000/github.png" alt="GitHub" style="width: 24px; height: 24px;" />
+          View On Github
+        </button>
+      </a>
+      <button onclick="openModal('project4')" style="background-color: transparent; border: none; cursor: pointer; display: flex; align-items: center;">
+        <img src="https://img.icons8.com/ios/50/000000/plus.png" alt="Plus" style="width: 20px; height: 20px; margin-right: 5px;" />
+        More Details
+      </button>
+    </div>
+  </div>
+  
+  <!-- Project Item 5: E-Commerce Web Application -->
+  <div class="project-item">
+    <h3>E-Commerce Web Application</h3>
+    <p>This Laravel-based e-commerce platform allows for online shopping with features such as shopping cart management, order processing, and a smooth checkout process. Built with Laravel and MySQL.</p>
+    <div class="project-icons">
+      <!-- Laravel Icon (Font Awesome) -->
+      <i class="fab fa-laravel" style="font-size: 48px; color: #ff2d20;"></i>
+      <img src="https://img.icons8.com/color/48/000000/mysql.png" alt="MySQL">
+    </div>
+    <div class="project-buttons">
+      <a href="https://github.com/HarithaKannangara/ecommerce" target="_blank">
+        <button style="background-color: transparent; border: none; cursor: pointer;">
+          <img src="https://img.icons8.com/ios/50/000000/github.png" alt="GitHub" style="width: 24px; height: 24px;" />
+          View On Github
+        </button>
+      </a>
+      <button onclick="openModal('project5')" style="background-color: transparent; border: none; cursor: pointer; display: flex; align-items: center;">
+        <img src="https://img.icons8.com/ios/50/000000/plus.png" alt="Plus" style="width: 20px; height: 20px; margin-right: 5px;" />
+        More Details
+      </button>
+    </div>
+  </div>
+
+      <!-- Project Item 3: Boat Safari System -->
+      <div class="project-item">
+        <h3>Boat Safari System</h3>
+        <p>A web application that allows users to book boat safaris and find guides for their trips.</p>
+        <div class="project-icons">
+          <img src="https://img.icons8.com/color/48/000000/react-native.png" alt="React">
+        </div>
+        <div class="project-buttons">
+          
+          <button onclick="openModal('project3')" style="background-color: transparent; border: none; cursor: pointer; display: flex; align-items: center;">
+            <img src="https://img.icons8.com/ios/50/000000/plus.png" alt="Plus" style="width: 20px; height: 20px; margin-right: 5px;" />
+            More Details
+          </button>
+        </div>
+      </div>
+  
+      
+  
+      
+    </div>
+  </section>
+  
+  <!-- Modals for Project Details -->
+  <div id="project1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('project1')">&times;</span>
+      <h3>Budget App</h3>
+      <p>More detailed information about the Budget App...</p>
+    </div>
+  </div>
+  
+  <div id="project2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('project2')">&times;</span>
+      <h3>Pizza Shop Management System</h3>
+      <p>More detailed information about the Pizza Shop Management System...</p>
+    </div>
+  </div>
+  
+  <div id="project3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('project3')">&times;</span>
+      <h3>Boat Safari System</h3>
+      <p>More detailed information about the Boat Safari System...</p>
+    </div>
+  </div>
+  
+  <div id="project4" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('project4')">&times;</span>
+      <h3>Past Student Association</h3>
+      <p>More detailed information about the Past Student Association...</p>
+    </div>
+  </div>
+  
+  <div id="project5" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('project5')">&times;</span>
+      <h3>E-Commerce Web Application</h3>
+      <p>More detailed information about the E-Commerce Web Application...</p>
+    </div>
+  </div>
+  
+  <script>
+  function openModal(projectId) {
+    document.getElementById(projectId).style.display = 'block';
+  }
+  
+  function closeModal(projectId) {
+    document.getElementById(projectId).style.display = 'none';
+  }
+  </script>
+  
+  <style>
+  .project-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .project-buttons button {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .project-buttons a {
+    text-decoration: none;
+  }
+  </style>
+  
+  
+  
+
+
+<!-- Education Section -->
+<section class="education" style="padding: 3rem; background: #fff; text-align: center; animation: fadeIn 1.5s ease-out forwards;">
+    <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #333; background: linear-gradient(to right, #ff8a00, #e52e71); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Education</h2>
+    <div class="education-details" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-top: 2rem;">
+      <div class="education-item" style="background: #f4f4f9; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 100%; max-width: 600px; text-align: left;">
+        <h3 style="font-size: 1.6rem; color: #333; margin-bottom: 0.5rem;">Sri Lanka Institute of Information Technology</h3>
+        <p style="font-size: 1rem; color: #666; margin-bottom: 0.5rem;"><strong style="color: #333;">BSc (Hons) in Information Technology</strong></p>
+        <p style="font-size: 1rem; color: #666; margin-bottom: 0.5rem;">Specialising in Information Technology</p>
+        <p style="font-size: 1rem; color: #666; margin-bottom: 0.5rem;"><strong style="color: #333;">2021 - Present</strong></p>
+      </div>
+      <div class="education-item" style="background: #f4f4f9; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 100%; max-width: 600px; text-align: left;">
+        <h3 style="font-size: 1.6rem; color: #333; margin-bottom: 0.5rem;">Informatics Institute of Technology (IIT Campus)</h3>
+        <p style="font-size: 1rem; color: #666; margin-bottom: 0.5rem;"><strong style="color: #333;">Professional Certificate in Network & System Administration</strong></p>
+        <p style="font-size: 1rem; color: #666; margin-bottom: 0.5rem;"><strong style="color: #333;">2024</strong></p>
+      </div>
+      <div class="education-item" style="background: #f4f4f9; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 100%; max-width: 600px; text-align: left;">
+        <h3 style="font-size: 1.6rem; color: #333; margin-bottom: 0.5rem;">Eheliyagoda Central College</h3>
+        <p style="font-size: 1rem; color: #666; margin-bottom: 0.5rem;"><strong style="color: #333;">GCE - AL (Technology Stream)</strong></p>
+        <p style="font-size: 1rem; color: #666; margin-bottom: 0.5rem;">SFT - B / IT - C / ET - S</p>
+        <p style="font-size: 1rem; color: #666; margin-bottom: 0.5rem;"><strong style="color: #333;">2021</strong></p>
+      </div>
+    </div>
+</section>
+
+  
+
+<footer class="footer">
+    <p>&copy; 2024 Haritha Kannangara. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://github.com/HarithaKannangara" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/haritha-kannangara/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </div>
+  </footer
+
+</body>
+<script>
+    function openModal(projectId) {
+      var modal = document.getElementById(projectId);
+      modal.style.display = "block";
+    }
+  
+    function closeModal(projectId) {
+      var modal = document.getElementById(projectId);
+      modal.style.display = "none";
+    }
+  
+    // Close the modal when clicking anywhere outside the modal content
+    window.onclick = function(event) {
+      var modals = document.getElementsByClassName('modal');
+      for (var i = 0; i < modals.length; i++) {
+        if (event.target == modals[i]) {
+          modals[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+  
+</html>
